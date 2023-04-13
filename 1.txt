@@ -1,0 +1,33 @@
+#1
+CREATE TABLE `180daraga_market` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_value` int(11) NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `recored_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `cnt` int(11) NOT NULL DEFAULT 0
+)
+=================================
+#2
+CREATE TABLE `thecamp_market_sells` (
+  `id` int(11) NOT NULL,
+  `sells_quantity` int(11) NOT NULL DEFAULT 0,
+  `recored_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `product_id` int(11) NOT NULL
+)
+=================================
+#3
+INSERT INTO `180daraga_market` (`id`, `product_name`, `product_value`, `product_quantity`, `recored_date`, `cnt`) VALUES
+(1, 'Pepsi', 5, 20, '2023-04-11 00:38:11', 6),
+(2, 'shepci', 5, 20, '2023-04-11 00:31:59', 0);
+==================================
+#4
+INSERT INTO `thecamp_market_sells` (`id`, `sells_quantity`, `recored_date`, `product_id`) VALUES
+(8, 3, '2023-04-11 00:34:28', 1),
+(9, 3, '2023-04-11 00:38:11', 1);
+===================================
+#5
+`SELECT * FROM 180daraga_market`
+===================================
+#6
+`SELECT product_id, sells_quantity FROM thecamp_market_sells`
